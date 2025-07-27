@@ -1,0 +1,31 @@
+{
+  "name": "top-inventory-mgmt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianmandap/top-inventory-mgmt.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ianmandap/top-inventory-mgmt/issues"
+  },
+  "homepage": "https://github.com/ianmandap/top-inventory-mgmt#readme",
+  "dependencies": {
+    "@prisma/client": "^6.12.0",
+    "dotenv": "^17.2.1",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "pg": "^8.16.3"
+  },
+  "devDependencies": {
+    "prisma": "^6.12.0"
+  }
+}
