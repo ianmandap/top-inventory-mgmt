@@ -22,12 +22,13 @@ model Item {
   price      Decimal
   quantity   Int
   imageKey   String?
+  imageId    String?
   category   Category @relation(fields: [categoryId], references: [id])
   categoryId Int
 }
 
 model Category {
   id    Int    @id @default(autoincrement())
-  name  String @db.VarChar(255)
+  name  String @unique
   items Item[]
 }

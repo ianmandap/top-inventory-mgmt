@@ -6,7 +6,8 @@ async function getItems(req, res) {
   // const filterParams = req.query.filter
 
   const items = await prisma.item.findMany();
-  res.json(items);
+  // res.json(items);
+  res.render("items/index", { items: items })
   // const data = await db.getAllUsernames(searchParam);
   // res.send(data)
 };

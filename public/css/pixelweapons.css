@@ -1,0 +1,180 @@
+.pixelweapons {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  background-image: url("/images/32x32_PixelWeapons_Free.png");
+}
+
+/* row 0 */
+#brown-sword {
+  background-position: 0px 0px;
+}
+
+#brown-spear {
+  background-position: -32px 0px;
+}
+
+#brown-staff {
+  background-position: -64px 0px;
+}
+
+#brown-bow {
+  background-position: -96px 0px;
+}
+
+#brown-shield {
+  background-position: -128px 0px;
+}
+
+#brown-exotic {
+  background-position: -192px 0px;
+}
+
+/* row 1 */
+#bronze-sword {
+  background-position: 0px -32px;
+}
+
+#bronze-spear {
+  background-position: -32px -32px;
+}
+
+#bronze-staff {
+  background-position: -64px -32px;
+}
+
+#bronze-bow {
+  background-position: -96px -32px;
+}
+
+#bronze-shield {
+  background-position: -128px -32px;
+}
+
+#bronze-exotic {
+  background-position: -192px -32px;
+}
+
+/* row 2 */
+#grey-sword {
+  background-position: 0px -64px;
+}
+
+#grey-spear {
+  background-position: -32px -64px;
+}
+
+#grey-staff {
+  background-position: -64px -64px;
+}
+
+#grey-bow {
+  background-position: -96px -64px;
+}
+
+#grey-shield {
+  background-position: -128px -64px;
+}
+
+#grey-exotic {
+  background-position: -192px -64px;
+}
+
+/* row 3 */
+#white-sword {
+  background-position: 0px -96px;
+}
+
+#white-spear {
+  background-position: -32px -96px;
+}
+
+#white-staff {
+  background-position: -64px -96px;
+}
+
+#white-bow {
+  background-position: -96px -96px;
+}
+
+#white-shield {
+  background-position: -128px -96px;
+}
+
+#white-exotic {
+  background-position: -192px -96px;
+}
+
+/* row 4 */
+#black-sword {
+  background-position: 0px -128px;
+}
+
+#black-spear {
+  background-position: -32px -128px;
+}
+
+#black-staff {
+  background-position: -64px -128px;
+}
+
+#black-bow {
+  background-position: -96px -128px;
+}
+
+#black-shield {
+  background-position: -128px -128px;
+}
+
+#black-exotic {
+  background-position: -192px -128px;
+}
+
+/* row 5 */
+#gold-sword {
+  background-position: 0px -160px;
+}
+
+#gold-spear {
+  background-position: -32px -160px;
+}
+
+#gold-staff {
+  background-position: -64px -160px;
+}
+
+#gold-bow {
+  background-position: -96px -160px;
+}
+
+#gold-shield {
+  background-position: -128px -160px;
+}
+
+#gold-exotic {
+  background-position: -192px -160px;
+}
+/* row 6 */
+#teal-sword {
+  background-position: 0px -192px;
+}
+
+#teal-spear {
+  background-position: -32px -192px;
+}
+
+#teal-staff {
+  background-position: -64px -192px;
+}
+
+#teal-bow {
+  background-position: -96px -192px;
+}
+
+#teal-shield {
+  background-position: -128px -192px;
+}
+
+#teal-exotic {
+  background-position: -192px -192px;
+}

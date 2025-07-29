@@ -4,6 +4,7 @@ const app = express();
 const itemsRouter = require("./routes/itemsRouter");
 const pagesRouter = require("./routes/pagesRouter");
 
+app.use(express.static('public'));
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 
