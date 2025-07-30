@@ -1,1 +1,82 @@
-<div>New Item</div>
+<head>
+  <link rel="stylesheet" type="text/css" href="/css/pixelweapons.css">
+</head>
+
+<div>
+  New Item
+  <a href="#" class="pixelweapons" id="brown-sword"></a>
+</div>
+
+<!-- <img src="/images/32x32_PixelWeapons_Free.png" />
+<br>
+<a href="#" class="pixelweapons" id="brown-sword"></a>
+<a href="#" class="pixelweapons" id="brown-spear"></a>
+<a href="#" class="pixelweapons" id="brown-staff"></a>
+<a href="#" class="pixelweapons" id="brown-bow"></a>
+<a href="#" class="pixelweapons" id="brown-shield"></a>
+<br>
+<a href="#" class="pixelweapons" id="bronze-sword"></a>
+<a href="#" class="pixelweapons" id="bronze-spear"></a>
+<a href="#" class="pixelweapons" id="bronze-staff"></a>
+<a href="#" class="pixelweapons" id="bronze-bow"></a>
+<a href="#" class="pixelweapons" id="bronze-shield"></a>
+<br>
+<a href="#" class="pixelweapons" id="grey-sword"></a>
+<a href="#" class="pixelweapons" id="grey-spear"></a>
+<a href="#" class="pixelweapons" id="grey-staff"></a>
+<a href="#" class="pixelweapons" id="grey-bow"></a>
+<a href="#" class="pixelweapons" id="grey-shield"></a>
+<br>
+<a href="#" class="pixelweapons" id="white-sword"></a>
+<a href="#" class="pixelweapons" id="white-spear"></a>
+<a href="#" class="pixelweapons" id="white-staff"></a>
+<a href="#" class="pixelweapons" id="white-bow"></a>
+<a href="#" class="pixelweapons" id="white-shield"></a>
+<br>
+<a href="#" class="pixelweapons" id="black-sword"></a>
+<a href="#" class="pixelweapons" id="black-spear"></a>
+<a href="#" class="pixelweapons" id="black-staff"></a>
+<a href="#" class="pixelweapons" id="black-bow"></a>
+<a href="#" class="pixelweapons" id="black-shield"></a>
+<br>
+<a href="#" class="pixelweapons" id="gold-sword"></a>
+<a href="#" class="pixelweapons" id="gold-spear"></a>
+<a href="#" class="pixelweapons" id="gold-staff"></a>
+<a href="#" class="pixelweapons" id="gold-bow"></a>
+<a href="#" class="pixelweapons" id="gold-shield"></a>
+<br>
+<a href="#" class="pixelweapons" id="teal-sword"></a>
+<a href="#" class="pixelweapons" id="teal-spear"></a>
+<a href="#" class="pixelweapons" id="teal-staff"></a>
+<a href="#" class="pixelweapons" id="teal-bow"></a>
+<a href="#" class="pixelweapons" id="teal-shield"></a>
+<br>
+<a href="#" class="pixelweapons" id="brown-exotic"></a>
+<a href="#" class="pixelweapons" id="bronze-exotic"></a>
+<a href="#" class="pixelweapons" id="grey-exotic"></a>
+<a href="#" class="pixelweapons" id="white-exotic"></a>
+<a href="#" class="pixelweapons" id="black-exotic"></a>
+<a href="#" class="pixelweapons" id="gold-exotic"></a>
+<a href="#" class="pixelweapons" id="teal-exotic"></a> -->
+
+<form action="/items" method="POST">
+  <!-- todo: pure html css does not work -->
+  <select name="imageId" style="width: 32px;height: 32px;">
+    <option value="brown-exotic">1</option>
+    <option value="teal-exotic">2</option>
+  </select>
+  <input type="hidden" name="imageKey" value="pixelweapons">
+  <label for="name">Name: </label>
+  <input type="text" name="name" id="name" required>
+  <label for="price">Price: </label>
+  <input type="number" placeholder="0.00" required name="price" min="0" value="0" step="0.01">
+  <label for="quantity">Quantity: </label>
+  <input type="number" name="quantity" required>
+  <select name="categoryId">
+    <% categories.forEach(category => { %>
+    <option value=<%= category.id %>><%= category.name %></option>
+    <% }) %>
+  </select>
+  <button type="submit">Submit</button>
+</form>
+<a href="/">Back to home</a>
