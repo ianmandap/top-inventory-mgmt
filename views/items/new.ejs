@@ -1,10 +1,7 @@
-<head>
-  <link rel="stylesheet" type="text/css" href="/css/pixelweapons.css">
-</head>
+<%- include("../partials/header.ejs") %>
 
 <div>
   New Item
-  <a href="#" class="pixelweapons" id="brown-sword"></a>
 </div>
 
 <!-- <img src="/images/32x32_PixelWeapons_Free.png" />
@@ -59,24 +56,5 @@
 <a href="#" class="pixelweapons" id="gold-exotic"></a>
 <a href="#" class="pixelweapons" id="teal-exotic"></a> -->
 
-<form action="/items" method="POST">
-  <!-- todo: pure html css does not work -->
-  <select name="imageId" style="width: 32px;height: 32px;">
-    <option value="brown-exotic">1</option>
-    <option value="teal-exotic">2</option>
-  </select>
-  <input type="hidden" name="imageKey" value="pixelweapons">
-  <label for="name">Name: </label>
-  <input type="text" name="name" id="name" required>
-  <label for="price">Price: </label>
-  <input type="number" placeholder="0.00" required name="price" min="0" value="0" step="0.01">
-  <label for="quantity">Quantity: </label>
-  <input type="number" name="quantity" required>
-  <select name="categoryId">
-    <% categories.forEach(category => { %>
-    <option value=<%= category.id %>><%= category.name %></option>
-    <% }) %>
-  </select>
-  <button type="submit">Submit</button>
-</form>
-<a href="/">Back to home</a>
+<%- include('../partials/items/form', {actionUrl: "/items"}) %>
+<%- include("../partials/footer.ejs") %>

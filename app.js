@@ -9,7 +9,7 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/', pagesRouter);
-app.use("/items", itemsRouter);
+app.use('/items', itemsRouter);
 // app.use("/category", categoriesRouter);
 
 const port = 3000;

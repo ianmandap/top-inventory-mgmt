@@ -1,32 +1,8 @@
-<head>
-  <link rel="stylesheet" type="text/css" href="/css/pixelweapons.css">
-</head>
+<%- include("../partials/header.ejs") %>
+
 
 <%- include("../partials/sidebar.ejs", { categories: categories }) %>
 
 <h1>Items</h1>
 <a href="/items/new">Create New Item</a>
-<table>
-  <tr>
-    <th>Icon</th>
-    <th>Id</th>
-    <th>Name</th>
-    <th>Price</th>
-    <th>Quantity</th>
-    <th>Category</th>
-    <th>Updated At</th>
-    <th>Actions</th>
-  </tr>
-  <% items.forEach(item => { %>
-  <tr>
-    <td class=<%= item.imageKey %> id=<%= item.imageId %>></td>
-    <td><%= item.id %></td>
-    <td><%= item.name %></td>
-    <td><%= item.price %></td>
-    <td><%= item.quantity %></td>
-    <td><%= item.category.name %></td>
-    <td><%= item.updatedAt.toLocaleString() %></td>
-    <td><a href=<%= `/items/${item.id}/edit` %>>Edit Item</a></td>
-  </tr>
-  <% }) %>
-</table>
+<%- include("../partials/table.ejs", { items: items }) %>
