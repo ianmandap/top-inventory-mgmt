@@ -13,8 +13,9 @@ async function getItem(req, res) {
 }
 
 async function createItemGet(req, res) {
+  const queryParams = req.query.category
   const categories = await db.queryGetCategories();
-  res.render("items/new", { categories: categories })
+  res.render("items/new", { categories: categories, queryParams: queryParams })
 }
 
 async function createItemPost(req, res) {
@@ -24,7 +25,7 @@ async function createItemPost(req, res) {
     imageId: imageId, category: { connect: { id: parseInt(categoryId) } }
   }
   await db.queryCreateItem(data);
-  res.redirect('items')
+  res.redirect('/items')
 }
 
 async function updateItemGet(req, res) {
@@ -34,8 +35,7 @@ async function updateItemGet(req, res) {
   res.render("items/edit", { item: item, categories: categories })
 }
 
-async function updateItemPut(req, res) {
-  // todo
+async function updateItemPost(req, res) {
   const itemId = parseInt(req.params.id)
   const { name, price, quantity, categoryId, imageKey, imageId } = req.body;
   const data = {
@@ -52,5 +52,5 @@ module.exports = {
   createItemGet,
   createItemPost,
   updateItemGet,
-  updateItemPut
+  updateItemPost
 }

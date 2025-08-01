@@ -7,7 +7,6 @@ itemsRouter.post('/', itemsController.createItemPost)
 itemsRouter.get('/new', itemsController.createItemGet)
 itemsRouter.get('/:id', itemsController.getItem)
 itemsRouter.get('/:id/edit', itemsController.updateItemGet)
-itemsRouter.post('/:id', itemsController.updateItemPut)
-
+itemsRouter.post('/:id', itemsController.updateItemPost)
 
 module.exports = itemsRouter;

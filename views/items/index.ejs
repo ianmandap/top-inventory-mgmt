@@ -3,6 +3,8 @@
 
 <%- include("../partials/sidebar.ejs", { categories: categories }) %>
 
-<h1>Items</h1>
-<a href="/items/new">Create New Item</a>
-<%- include("../partials/table.ejs", { items: items }) %>
+<div class="content">
+  <h1>Items</h1>
+  <a href="/items/new">Create New Item</a>
+  <%- include("../partials/table.ejs", { items: items }) %>
+</div>

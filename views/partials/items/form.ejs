@@ -13,8 +13,10 @@
   <input type="number" name="quantity" required value=<%= typeof item === 'undefined' ? '' : item.quantity %>>
   <select name="categoryId">
     <% categories.forEach(category => { %>
-    <option <%= typeof item === 'undefined' ? '' : 
-                category.name == item.category.name ? "selected" : "" %> value=<%= category.id %>>
+    <option <%= typeof queryParams === 'undefined' ? 
+                  (typeof item === 'undefined' ? '' :
+                  category.name == item.category.name ? "selected" : "") :
+                  (queryParams == category.name ? "selected" : "") %> value=<%= category.id %>>
       <%= category.name %>
     </option>
     <% }) %>

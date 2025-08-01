@@ -1,0 +1,5 @@
+<form action=<%= actionUrl %> method="POST">
+  <label for="name">Name: </label>
+  <input type="text" name="name" id="name" required value="<%= typeof category === 'undefined' ? '' : category.name %>">
+  <button type="submit">Submit</button>
+</form>

@@ -1,0 +1,52 @@
+const db = require("../prisma/queries")
+
+async function getCategories(req, res) {
+  const categories = await db.queryGetCategories();
+  res.render("categories/index", { categories: categories })
+};
+
+async function getCategory(req, res) {
+  const id = parseInt(req.params.id)
+  const categories = await db.queryGetCategories();
+  const category = await db.queryGetCategory(id);
+  const items = category.items.map(() => {
+
+  })
+  res.render("categories/category", { category: category, categories: categories, items: category.items })
+}
+
+async function createCategoryGet(req, res) {
+  res.render("categories/new")
+}
+
+async function createCategoryPost(req, res) {
+  const { name } = req.body;
+  await db.queryCreateCategory({ name: name });
+  res.redirect('/categories')
+}
+
+async function updateCategoryGet(req, res) {
+  const id = parseInt(req.params.id)
+  const category = await db.queryGetCategory(id);
+  res.render("categories/edit", { category: category })
+}
+
+async function updateCategoryPost(req, res) {
+  const categoryId = parseInt(req.params.id)
+  const { name } = req.body;
+  const data = {
+    name: name
+  }
+  const category = await db.queryUpdateCategory(categoryId, data);
+  const categories = await db.queryGetCategories();
+  res.render(`categories/category`, { category: category, categories: categories, items: category.items })
+}
+
+module.exports = {
+  getCategories,
+  getCategory,
+  createCategoryGet,
+  createCategoryPost,
+  updateCategoryGet,
+  updateCategoryPost
+}
