@@ -8,5 +8,6 @@ itemsRouter.get('/new', itemsController.createItemGet)
 itemsRouter.get('/:id', itemsController.getItem)
 itemsRouter.get('/:id/edit', itemsController.updateItemGet)
 itemsRouter.post('/:id', itemsController.updateItemPost)
+itemsRouter.post('/:id/delete', itemsController.deleteItem)
 
 module.exports = itemsRouter;

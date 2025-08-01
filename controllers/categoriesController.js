@@ -42,11 +42,18 @@ async function updateCategoryPost(req, res) {
   res.render(`categories/category`, { category: category, categories: categories, items: category.items })
 }
 
+async function deleteCategory(req, res) {
+  const categoryId = parseInt(req.params.id)
+  await db.queryDeleteCategory(categoryId);
+  res.redirect('/categories');
+}
+
 module.exports = {
   getCategories,
   getCategory,
   createCategoryGet,
   createCategoryPost,
   updateCategoryGet,
-  updateCategoryPost
+  updateCategoryPost,
+  deleteCategory
 }

@@ -1,6 +1,7 @@
 <link rel="stylesheet" type="text/css" href="/css/styles.css" />
 
 <div id="sidebar">
+  <a href="/items">All</a>
   <% categories.forEach(category => { %>
   <a href=<%= `/categories/${category.id}` %>><%= category.name %></a>
   <% }) %>

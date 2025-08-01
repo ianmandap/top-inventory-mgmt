@@ -15,7 +15,7 @@
     <% categories.forEach(category => { %>
     <option <%= typeof queryParams === 'undefined' ? 
                   (typeof item === 'undefined' ? '' :
-                  category.name == item.category.name ? "selected" : "") :
+                  category.name == item?.category?.name ? "selected" : "") :
                   (queryParams == category.name ? "selected" : "") %> value=<%= category.id %>>
       <%= category.name %>
     </option>

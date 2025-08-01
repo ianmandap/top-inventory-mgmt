@@ -2,7 +2,7 @@ const { PrismaClient } = require('../generated/prisma')
 const prisma = new PrismaClient()
 
 async function queryGetItems() {
-  return await prisma.item.findMany({ include: { category: true } });
+  return await prisma.item.findMany({ orderBy: { id: "desc" }, include: { category: true } });
 }
 
 async function queryGetItem(itemId) {
@@ -19,13 +19,17 @@ async function queryUpdateItem(itemId, data) {
   return await prisma.item.update({ where: { id: itemId }, data: data, include: { category: true } });
 }
 
+async function queryDeleteItem(itemId) {
+  return await prisma.item.delete({ where: { id: itemId } })
+}
+
 async function queryGetCategories() {
   return await prisma.category.findMany();
 }
 
 async function queryGetCategory(categoryId) {
   return await prisma.category.findUnique({
-    where: { id: categoryId }, include: { items: { include: { category: true } } }
+    where: { id: categoryId }, include: { items: { orderBy: { id: "desc" }, include: { category: true } } }
   })
 }
 
@@ -37,13 +41,19 @@ async function queryUpdateCategory(categoryId, data) {
   return await prisma.category.update({ where: { id: categoryId }, data: data, include: { items: { include: { category: true } } } });
 }
 
+async function queryDeleteCategory(categoryId) {
+  return await prisma.category.delete({ where: { id: categoryId } })
+}
+
 module.exports = {
   queryGetItems,
   queryGetItem,
   queryCreateItem,
   queryUpdateItem,
+  queryDeleteItem,
   queryGetCategories,
   queryGetCategory,
   queryCreateCategory,
-  queryUpdateCategory
+  queryUpdateCategory,
+  queryDeleteCategory
 };

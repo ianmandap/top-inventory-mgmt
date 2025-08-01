@@ -8,5 +8,6 @@ categoriesRouter.get('/new', categoriesController.createCategoryGet)
 categoriesRouter.get('/:id', categoriesController.getCategory)
 categoriesRouter.get('/:id/edit', categoriesController.updateCategoryGet)
 categoriesRouter.post('/:id', categoriesController.updateCategoryPost)
+categoriesRouter.post('/:id/delete', categoriesController.deleteCategory)
 
 module.exports = categoriesRouter;

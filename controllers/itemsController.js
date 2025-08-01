@@ -46,11 +46,18 @@ async function updateItemPost(req, res) {
   res.render(`items/item`, { item: item })
 }
 
+async function deleteItem(req, res) {
+  const itemId = parseInt(req.params.id)
+  await db.queryDeleteItem(itemId);
+  res.redirect('/items')
+}
+
 module.exports = {
   getItems,
   getItem,
   createItemGet,
   createItemPost,
   updateItemGet,
-  updateItemPost
+  updateItemPost,
+  deleteItem
 }
