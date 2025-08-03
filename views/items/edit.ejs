@@ -1,6 +1,7 @@
 <%- include("../partials/header.ejs") %>
 
 <div>Edit Page</div>
+<%- include('../partials/errors.ejs') %>
 
 <%- include('../partials/items/form.ejs', {categories: categories, actionUrl: `/items/${item.id}`}) %>
 <%- include("../partials/footer.ejs") %>

@@ -48,8 +48,18 @@ async function updateItemPost(req, res) {
 
 async function deleteItem(req, res) {
   const itemId = parseInt(req.params.id)
-  await db.queryDeleteItem(itemId);
-  res.redirect('/items')
+  const { secret } = req.body;
+  if (secret === process.env.ADMIN_PASSWORD) {
+    await db.queryDeleteItem(itemId);
+    return res.redirect('/items')
+  } else {
+    const categories = await db.queryGetCategories();
+    const items = await db.queryGetItems();
+    return res.status(400).render("items/index", {
+      items: items, categories: categories,
+      errors: [{ msg: "Incorrect Password. Item was not deleted" }],
+    });
+  }
 }
 
 module.exports = {

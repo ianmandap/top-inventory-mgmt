@@ -9,9 +9,6 @@ async function getCategory(req, res) {
   const id = parseInt(req.params.id)
   const categories = await db.queryGetCategories();
   const category = await db.queryGetCategory(id);
-  const items = category.items.map(() => {
-
-  })
   res.render("categories/category", { category: category, categories: categories, items: category.items })
 }
 
@@ -44,8 +41,18 @@ async function updateCategoryPost(req, res) {
 
 async function deleteCategory(req, res) {
   const categoryId = parseInt(req.params.id)
-  await db.queryDeleteCategory(categoryId);
-  res.redirect('/categories');
+  const { secret } = req.body;
+  if (secret === process.env.ADMIN_PASSWORD) {
+    await db.queryDeleteCategory(categoryId);
+    return res.redirect('/categories');
+  } else {
+    const categories = await db.queryGetCategories();
+    const category = await db.queryGetCategory(categoryId);
+    return res.status(400).render("categories/category", {
+      categories: categories, items: category.items, category: category,
+      errors: [{ msg: "Incorrect Password. Category was not deleted" }],
+    });
+  }
 }
 
 module.exports = {
