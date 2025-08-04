@@ -3,19 +3,22 @@ const db = require("../prisma/queries")
 async function getItems(req, res) {
   const categories = await db.queryGetCategories();
   const items = await db.queryGetItems();
-  res.render("items/index", { items: items, categories: categories })
+  res.json({ items: items, categories: categories });
+  // res.render("items/index", { items: items, categories: categories })
 };
 
 async function getItem(req, res) {
   const id = parseInt(req.params.id)
   const item = await db.queryGetItem(id);
-  res.render("items/item", { item: item })
+  res.json({ item: item })
+  // res.render("items/item", { item: item })
 }
 
 async function createItemGet(req, res) {
   const queryParams = req.query.category
   const categories = await db.queryGetCategories();
-  res.render("items/new", { categories: categories, queryParams: queryParams })
+  res.json({ categories: categories, queryParams: queryParams });
+  // res.render("items/new", { categories: categories, queryParams: queryParams })
 }
 
 async function createItemPost(req, res) {
@@ -24,15 +27,17 @@ async function createItemPost(req, res) {
     name: name, price: price, quantity: parseInt(quantity), imageKey: imageKey,
     imageId: imageId, category: { connect: { id: parseInt(categoryId) } }
   }
-  await db.queryCreateItem(data);
-  res.redirect('/items')
+  const item = await db.queryCreateItem(data);
+  res.json({ item: item })
+  // res.redirect('/items')
 }
 
 async function updateItemGet(req, res) {
   const id = parseInt(req.params.id)
   const categories = await db.queryGetCategories();
   const item = await db.queryGetItem(id);
-  res.render("items/edit", { item: item, categories: categories })
+  res.json({ item: item, categories: categories })
+  // res.render("items/edit", { item: item, categories: categories })
 }
 
 async function updateItemPost(req, res) {
@@ -43,7 +48,8 @@ async function updateItemPost(req, res) {
     imageId: imageId, category: { connect: { id: parseInt(categoryId) } }
   }
   const item = await db.queryUpdateItem(itemId, data);
-  res.render(`items/item`, { item: item })
+  res.json({ item: item })
+  // res.render(`items/item`, { item: item })
 }
 
 async function deleteItem(req, res) {
