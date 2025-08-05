@@ -3,15 +3,12 @@ const db = require("../prisma/queries")
 async function getCategories(req, res) {
   const categories = await db.queryGetCategories();
   res.json({ categories: categories })
-  // res.render("categories/index", { categories: categories })
 };
 
 async function getCategory(req, res) {
   const id = parseInt(req.params.id)
-  const categories = await db.queryGetCategories();
   const category = await db.queryGetCategory(id);
-  res.json({ category: category, categories: categories, items: category.items })
-  // res.render("categories/category", { category: category, categories: categories, items: category.items })
+  res.json({ category: category, items: category.items })
 }
 
 async function createCategoryGet(req, res) {

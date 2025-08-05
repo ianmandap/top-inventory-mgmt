@@ -4,14 +4,12 @@ async function getItems(req, res) {
   const categories = await db.queryGetCategories();
   const items = await db.queryGetItems();
   res.json({ items: items, categories: categories });
-  // res.render("items/index", { items: items, categories: categories })
 };
 
 async function getItem(req, res) {
   const id = parseInt(req.params.id)
   const item = await db.queryGetItem(id);
   res.json({ item: item })
-  // res.render("items/item", { item: item })
 }
 
 async function createItemGet(req, res) {
